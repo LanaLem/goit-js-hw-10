@@ -44,7 +44,7 @@ function markupList(countries) {
     const markup = countries.map((country) => {
          return`<li>
             <img src=${country.flags.svg} width = 35 height = 35 alt=${country.name.official}>
-            <span><b>${country.name.official}</b></span>
+            <span class="country-name">${country.name.official}</span>
             </li>`;
     }).join("");
     refs.countryListEl.innerHTML = markup;
@@ -52,13 +52,13 @@ function markupList(countries) {
 
 function markupCountryCard(countries) {
     const markup = countries.map((country) => {
-           return `<div class="country-flag-name">
+           return `<div class="country-flag">
             <img src=${country.flags.svg} width = 35 height = 35 alt=${country.name.official}>
-            <span><b>${country.name.official}</b></span>
+            <span class="country-name"><b>${country.name.official}</b></span>
             </div>
             <p><b>Capital</b>: ${country.capital}</p>
             <p><b>Population</b>: ${country.population}</p>
-            <p><b>Languages</b>: ${Object.values(country.languages)}</p>`;
+            <p><b>Languages</b>: ${Object.values(country.languages).join(", ")}</p>`;
         }).join("");
     refs.countryInfoEl.innerHTML = markup;
 }
